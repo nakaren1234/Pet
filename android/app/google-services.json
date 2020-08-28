@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "610546768586",
+    "firebase_url": "https://flutterapppet-6a6fb.firebaseio.com",
+    "project_id": "flutterapppet-6a6fb",
+    "storage_bucket": "flutterapppet-6a6fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610546768586:android:848e6673cef36d2be2b233",
+        "android_client_info": {
+          "package_name": "com.codingthailand.flutterapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610546768586-jagl647ns313q1n5e3niusbrp3vig3ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWobA39NRmAWHFMyelcx8hBjdHIuS7n6I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610546768586-jagl647ns313q1n5e3niusbrp3vig3ke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
