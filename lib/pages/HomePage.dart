@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: Menu(),
       appBar: AppBar(
-        backgroundColor: Colors.pinkAccent[100],
+        // backgroundColor: Colors.pinkAccent[100],
         centerTitle: true,
         title: const Logo(),
       ),
