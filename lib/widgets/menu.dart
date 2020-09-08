@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/FristPage.dart';
-// import 'package:flutterapp/pages/HomePage.dart';
+import 'package:flutterapp/pages/HomePage.dart';
 
 class Menu extends StatefulWidget {
   Menu({Key key}) : super(key: key);
@@ -34,17 +34,17 @@ class _MenuState extends State<Menu> {
                 leading: Icon(Icons.home),
                 title: Text('หน้าหลัก'),
                 trailing: Icon(Icons.arrow_right),
-                selected:
-                    ModalRoute.of(context).settings.name == 'homestack/home'
-                        ? true
-                        : false,
+                // selected:
+                //     ModalRoute.of(context).settings.name == 'homestack/home'
+                //         ? true
+                //         : false,
                 onTap: () {
-                  Navigator.of(context, rootNavigator: true)
-                      .pushNamedAndRemoveUntil(
-                          '/homestack', (Route<dynamic> route) => false);
-                  //   MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                  //       builder: (BuildContext context) => HomePage());
-                  //   Navigator.of(context).push(materialPageRoute);
+                  // Navigator.of(context, rootNavigator: true)
+                  //     .pushNamedAndRemoveUntil(
+                  //         '/homestack', (Route<dynamic> route) => false);
+                  MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                      builder: (BuildContext context) => HomePage());
+                  Navigator.of(context).push(materialPageRoute);
                 },
               ),
               // ListTile(
