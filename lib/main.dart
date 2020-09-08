@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:flutterapp/pages/FristPage.dart';
-import 'package:flutterapp/pages/FristStack.dart';
-import 'package:flutterapp/pages/HomeStack.dart';
-import 'package:flutterapp/pages/NewsStack.dart';
-import 'package:flutterapp/pages/ProductStack.dart';
+import 'package:flutterapp/pages/FristPage.dart';
+// import 'package:flutterapp/pages/FristStack.dart';
+// import 'package:flutterapp/pages/HomeStack.dart';
+// import 'package:flutterapp/pages/NewsStack.dart';
+// import 'package:flutterapp/pages/ProductStack.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 Future main() async {
@@ -30,15 +30,15 @@ class MyApp extends StatelessWidget {
                   fontSize: 50,
                   fontWeight: FontWeight.w600),
               headline6: TextStyle(color: Colors.red))),
-      // home: FristPage(),
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        // '/': (context) => HomeStack(),
-        '/': (context) => FristStack(),
-        '/homestack': (context) => HomeStack(),
-        '/productstack': (context) => ProductStack(),
-        '/newsstack': (context) => NewsStack(),
-      },
+      home: FristPage(),
+      // initialRoute: '/',
+      // routes: <String, WidgetBuilder>{
+      //   // '/': (context) => HomeStack(),
+      //   '/': (context) => FristStack(),
+      //   '/homestack': (context) => HomeStack(),
+      //   '/productstack': (context) => ProductStack(),
+      //   '/newsstack': (context) => NewsStack(),
+      // };
       debugShowCheckedModeBanner: false,
     );
   }
