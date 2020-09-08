@@ -7,7 +7,8 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     print('object');
     return Image.asset(
-      'assets/images/cct_logo.png',
+      // 'assets/images/cct_logo.png',
+      'assets/images/logo.png',
       height: 45,
       fit: BoxFit.cover,
     );

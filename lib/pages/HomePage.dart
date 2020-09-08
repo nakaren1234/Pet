@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       drawer: Menu(),
       appBar: AppBar(
-        // backgroundColor: Colors.pinkAccent[100],
+        backgroundColor: Colors.pinkAccent[100],
         centerTitle: true,
         title: const Logo(),
       ),
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.business, size: 80, color: Colors.purple),
+                    Icon(Icons.business, size: 80, color: Colors.pinkAccent),
                     Text('มหาวิทยาลัย', style: TextStyle(fontSize: 20))
                   ],
                 ),
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.map, size: 80, color: Colors.purple),
+                  Icon(Icons.map, size: 80, color: Colors.pinkAccent),
                   Text('แผนที่', style: TextStyle(fontSize: 20))
                 ],
               ),
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(Icons.camera_alt, size: 80, color: Colors.purple),
+                  Icon(Icons.camera_alt, size: 80, color: Colors.pinkAccent),
                   Text('กล้อง', style: TextStyle(fontSize: 20))
                 ],
               ),
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.person, size: 80, color: Colors.purple),
+                    Icon(Icons.person, size: 80, color: Colors.pinkAccent),
                     Text(
                       'ประวัติผู้ใช้',
                       textAlign: TextAlign.center,
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.pets, size: 80, color: Colors.purple),
+                    Icon(Icons.pets, size: 80, color: Colors.pinkAccent),
                     Text('ประวัติสัตว์เลี้ยง',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 20))
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.person, size: 80, color: Colors.purple),
+                    Icon(Icons.person, size: 80, color: Colors.pinkAccent),
                     Text('เกี่ยวกับเรา ${fromAbout ?? ''}',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 20))
