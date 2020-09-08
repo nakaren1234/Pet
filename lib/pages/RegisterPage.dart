@@ -39,8 +39,8 @@ class _RegisterPageState extends State<RegisterPage> {
       print('Register Success for Email = $emailString');
     }).catchError((response) {
       String title = response.code;
-      String massage = response.massage;
-      print('titlr = $title, massage = $massage');
+      String message = response.message;
+      print('title = $title, message = $message');
     });
   }
 
