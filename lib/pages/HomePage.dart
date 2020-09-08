@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/CompanyPage.dart';
+import 'package:flutterapp/pages/PetPage.dart';
+import 'package:flutterapp/pages/UserPage.dart';
 import 'package:flutterapp/widgets/logo.dart';
 import 'package:flutterapp/widgets/menu.dart';
 
@@ -79,7 +81,10 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'homestack/user');
+                // Navigator.pushNamed(context, 'homestack/user');
+                MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                    builder: (BuildContext context) => UserPage());
+                Navigator.of(context).push(materialPageRoute);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),
@@ -99,7 +104,10 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'homestack/pet');
+                // Navigator.pushNamed(context, 'homestack/pet');
+                MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                    builder: (BuildContext context) => PetPage());
+                Navigator.of(context).push(materialPageRoute);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),
@@ -117,14 +125,18 @@ class _HomePageState extends State<HomePage> {
             ),
             GestureDetector(
               onTap: () async {
-                fromAbout = await Navigator.pushNamed(
-                    context, 'homestack/about', arguments: {
-                  'email': 'codingthailand@gmail.com',
-                  'phone': '08222888'
-                });
-                setState(() {
-                  fromAbout = fromAbout;
-                });
+                // fromAbout = await Navigator.pushNamed(
+                //     context, 'homestack/about',
+                //     arguments: {
+                //   'email': 'codingthailand@gmail.com',
+                //   'phone': '08222888'
+                // });
+                // setState(() {
+                //   fromAbout = fromAbout;
+                // });
+                MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                    builder: (BuildContext context) => CompanyPage());
+                Navigator.of(context).push(materialPageRoute);
               },
               child: Container(
                 padding: const EdgeInsets.all(8),
