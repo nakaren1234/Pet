@@ -20,7 +20,7 @@ class _MenuState extends State<Menu> {
             children: <Widget>[
               DrawerHeader(
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: Colors.pinkAccent,
                 ),
                 child: Text(
                   'เมนูหลัก',

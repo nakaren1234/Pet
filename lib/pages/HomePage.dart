@@ -50,8 +50,9 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.business, size: 80, color: Colors.pinkAccent),
-                    Text('มหาวิทยาลัย', style: TextStyle(fontSize: 20))
+                    Icon(Icons.library_books,
+                        size: 80, color: Colors.pinkAccent),
+                    Text('คู่มือการใช้งาน', style: TextStyle(fontSize: 20))
                   ],
                 ),
                 color: Colors.white70,
