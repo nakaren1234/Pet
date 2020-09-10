@@ -41,7 +41,37 @@ class _RegisterPageState extends State<RegisterPage> {
       String title = response.code;
       String message = response.message;
       print('title = $title, message = $message');
+      myAlert(title, message);
     });
+  }
+
+  void myAlert(String title, String message) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: ListTile(
+              leading: Icon(
+                Icons.add_alert,
+                color: Colors.red,
+                size: 48.0,
+              ),
+              title: Text(
+                title,
+                style: TextStyle(color: Colors.red),
+              ),
+            ),
+            content: Text(message),
+            actions: [
+              FlatButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
   }
 
   Widget nameText() {
