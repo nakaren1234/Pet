@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutterapp/pages/HomePage.dart';
 
 class RegisterPage extends StatefulWidget {
   RegisterPage({Key key}) : super(key: key);
@@ -37,6 +38,12 @@ class _RegisterPageState extends State<RegisterPage> {
             email: emailString, password: passwordString)
         .then((response) {
       print('Register Success for Email = $emailString');
+
+      MaterialPageRoute materialPageRoute =
+          MaterialPageRoute(builder: (BuildContext context) => HomePage());
+      Navigator.of(context)
+          .pushAndRemoveUntil(materialPageRoute, (route) => false);
+      // setupDisplayName();
     }).catchError((response) {
       String title = response.code;
       String message = response.message;
@@ -44,6 +51,11 @@ class _RegisterPageState extends State<RegisterPage> {
       myAlert(title, message);
     });
   }
+
+  // Future<void> setupDisplayName() async {
+  //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  //   await firebaseAuth.currentUser().then((response){})
+  // }
 
   void myAlert(String title, String message) {
     showDialog(
