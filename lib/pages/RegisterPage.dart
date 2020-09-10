@@ -54,7 +54,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
   // Future<void> setupDisplayName() async {
   //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  //   await firebaseAuth.currentUser().then((response){})
+  //   await firebaseAuth.currentUser().then((response){
+  //      UserUpdateInfo userUpdateInfo = UserUpateInfo();
+  //     userUpdateInfo.displayname = nameString;
+  //     response.updateProfile(userUpdateInfo);
+
+  //   });
   // }
 
   void myAlert(String title, String message) {
