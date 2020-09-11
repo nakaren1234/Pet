@@ -1,3 +1,4 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/HomePage.dart';
 import 'package:flutterapp/pages/RegisterPage.dart';
@@ -11,6 +12,18 @@ class FristPage extends StatefulWidget {
 }
 
 class _FristPageState extends State<FristPage> {
+  //Method
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   checkStatus();
+  // }
+
+  // Future<void> checkStatus() async {
+  //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  // }
+
   Widget showLogo() {
     return Container(
       width: 120.0,

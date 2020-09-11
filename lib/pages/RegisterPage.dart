@@ -1,3 +1,4 @@
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutterapp/pages/HomePage.dart';
@@ -15,6 +16,11 @@ class _RegisterPageState extends State<RegisterPage> {
   String nameString, emailString, passwordString;
 
   // Method
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   Firebase.initializeApp().then((value) => setupDisplayName());
+  // }
 
   Widget registerButton() {
     return IconButton(
@@ -54,11 +60,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
   // Future<void> setupDisplayName() async {
   //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  //   await firebaseAuth.currentUser().then((response){
-  //      UserUpdateInfo userUpdateInfo = UserUpateInfo();
+  //   await firebaseAuth.currentUser().then((response) {
+  //     UserUpdateInfo userUpdateInfo = UserUpateInfo();
   //     userUpdateInfo.displayname = nameString;
   //     response.updateProfile(userUpdateInfo);
-
   //   });
   // }
 

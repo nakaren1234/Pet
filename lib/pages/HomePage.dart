@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/CompanyPage.dart';
+import 'package:flutterapp/pages/FristPage.dart';
 import 'package:flutterapp/pages/PetPage.dart';
 import 'package:flutterapp/pages/UserPage.dart';
 import 'package:flutterapp/widgets/logo.dart';
@@ -13,7 +15,64 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // Explictie
   var fromAbout; //dynamic
+
+  //Method
+  Widget signOutButton() {
+    return IconButton(
+      icon: Icon(Icons.exit_to_app),
+      tooltip: 'sign Out',
+      onPressed: () {
+        myAlert();
+      },
+    );
+  }
+
+  void myAlert() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Are You Sure ?'),
+          content: Text('Do You What SignOut ?'),
+          actions: [
+            cancelButton(),
+            okButton(),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget okButton() {
+    return FlatButton(
+      child: Text('OK'),
+      onPressed: () {
+        Navigator.of(context).pop();
+        processSignOut();
+      },
+    );
+  }
+
+  Future<void> processSignOut() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    await firebaseAuth.signOut().then((response) {
+      MaterialPageRoute materialPageRoute =
+          MaterialPageRoute(builder: (BuildContext context) => FristPage());
+      Navigator.of(context)
+          .pushAndRemoveUntil(materialPageRoute, (route) => false);
+    });
+  }
+
+  Widget cancelButton() {
+    return FlatButton(
+      child: Text('Cancel'),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +82,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.pinkAccent[100],
         centerTitle: true,
         title: const Logo(),
+        actions: [signOutButton()],
       ),
       body: Container(
         decoration: BoxDecoration(
