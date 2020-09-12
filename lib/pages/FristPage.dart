@@ -1,7 +1,8 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/pages/HomePage.dart';
+// import 'package:flutterapp/pages/HomePage.dart';
 import 'package:flutterapp/pages/RegisterPage.dart';
+import 'package:flutterapp/pages/authen.dart';
 // import 'package:flutterapp/pages/registerPage.dart';
 
 class FristPage extends StatefulWidget {
@@ -57,7 +58,7 @@ class _FristPageState extends State<FristPage> {
         print('You Click Signin');
         //การ routing อีกแบบ
         MaterialPageRoute materialPageRoute =
-            MaterialPageRoute(builder: (BuildContext context) => HomePage());
+            MaterialPageRoute(builder: (BuildContext context) => Authen());
         Navigator.of(context).push(materialPageRoute);
       },
     );
@@ -92,27 +93,28 @@ class _FristPageState extends State<FristPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Container(
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: [Colors.white, Colors.pinkAccent[100]],
-            radius: 1.0,
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: RadialGradient(
+              colors: [Colors.white, Colors.pinkAccent[100]],
+              radius: 1.0,
+            ),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                showLogo(),
+                SizedBox(height: 30),
+                showAppName(),
+                SizedBox(height: 8),
+                showButton(),
+                // Text('Hert'),
+              ],
+            ),
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              showLogo(),
-              SizedBox(height: 30),
-              showAppName(),
-              SizedBox(height: 8),
-              showButton(),
-              // Text('Hert'),
-            ],
-          ),
-        ),
-      )),
+      ),
     );
   }
 }
