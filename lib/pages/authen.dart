@@ -1,4 +1,7 @@
+// import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutterapp/pages/HomePage.dart';
 
 class Authen extends StatefulWidget {
   Authen({Key key}) : super(key: key);
@@ -9,7 +12,8 @@ class Authen extends StatefulWidget {
 
 class _AuthenState extends State<Authen> {
   // Explicit
-
+  final formKey = GlobalKey<FormState>();
+  String emailString, passwordString;
   // Method
 
   Widget backButton() {
@@ -27,15 +31,18 @@ class _AuthenState extends State<Authen> {
 
   Widget content() {
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          showAppName(),
-          emailText(),
-          passwordText(),
-          SizedBox(height: 30.0),
-          signInButton(),
-        ],
+      child: Form(
+        key: formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            showAppName(),
+            emailText(),
+            passwordText(),
+            SizedBox(height: 30.0),
+            signInButton(),
+          ],
+        ),
       ),
     );
   }
@@ -75,7 +82,7 @@ class _AuthenState extends State<Authen> {
   Widget emailText() {
     return Container(
       width: 250.0,
-      child: TextField(
+      child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           icon: Icon(
@@ -86,6 +93,9 @@ class _AuthenState extends State<Authen> {
           labelText: 'Email :',
           labelStyle: TextStyle(color: Colors.pinkAccent[200]),
         ),
+        onSaved: (String value) {
+          emailString = value.trim();
+        },
       ),
     );
   }
@@ -93,7 +103,7 @@ class _AuthenState extends State<Authen> {
   Widget passwordText() {
     return Container(
       width: 250.0,
-      child: TextField(
+      child: TextFormField(
         obscureText: true,
         decoration: InputDecoration(
           icon: Icon(
@@ -104,6 +114,9 @@ class _AuthenState extends State<Authen> {
           labelText: 'Password :',
           labelStyle: TextStyle(color: Colors.pinkAccent[200]),
         ),
+        onSaved: (String value) {
+          passwordString = value.trim();
+        },
       ),
     );
   }
@@ -118,12 +131,72 @@ class _AuthenState extends State<Authen> {
       onPressed: () {
         // Navigator.pushNamed(context, 'friststack/home');
         print('You Click Login');
+        formKey.currentState.save();
+        print('email = $emailString,password = $passwordString');
+        checkAuthen();
         //การ routing อีกแบบ
         // MaterialPageRoute materialPageRoute =
         //     MaterialPageRoute(builder: (BuildContext context) => Authen());
         // Navigator.of(context).push(materialPageRoute);
       },
     );
+  }
+
+  Future<void> checkAuthen() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    await firebaseAuth
+        .signInWithEmailAndPassword(
+            email: emailString, password: passwordString)
+        .then((response) {
+      print('Authen Success');
+      MaterialPageRoute materialPageRoute =
+          MaterialPageRoute(builder: (BuildContext context) => HomePage());
+      Navigator.of(context)
+          .pushAndRemoveUntil(materialPageRoute, (route) => false);
+    }).catchError((response) {
+      String title = response.code;
+      String message = response.message;
+      myAlert(title, message);
+    });
+  }
+
+  Widget showTitle(String title) {
+    return ListTile(
+      leading: Icon(
+        Icons.add_alert,
+        size: 48.0,
+        color: Colors.red,
+      ),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: Colors.red,
+          fontSize: 18.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+
+  Widget okButton() {
+    return FlatButton(
+      child: Text('OK'),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+  }
+
+  void myAlert(String title, String message) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: showTitle(title),
+            content: Text(message),
+            actions: [okButton()],
+          );
+        });
   }
 
   @override
