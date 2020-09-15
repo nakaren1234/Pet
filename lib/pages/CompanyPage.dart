@@ -11,10 +11,12 @@ class _CompanyPageState extends State<CompanyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.pinkAccent, title: Text('ข้อมูลบริษัท')),
-        body: SingleChildScrollView(
-            child: Column(
+      appBar: AppBar(
+        backgroundColor: Colors.pinkAccent,
+        title: Text('User Guide'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             buildHeader(),
@@ -24,9 +26,11 @@ class _CompanyPageState extends State<CompanyPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('CodingThailand',
-                        style: TextStyle(
-                            fontSize: 32, fontWeight: FontWeight.bold)),
+                    Text(
+                      'User Guide',
+                      style:
+                          TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    ),
                     Divider(),
                     Text(
                       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type',
@@ -54,14 +58,16 @@ class _CompanyPageState extends State<CompanyPage> {
                     ),
                     Divider(),
                     Wrap(
-                        spacing: 8,
-                        children: List.generate(
-                            7,
-                            (int index) => Chip(
-                                  label: Text('Text ${index + 1}'),
-                                  avatar: Icon(Icons.star),
-                                  backgroundColor: Colors.purpleAccent,
-                                ))),
+                      spacing: 8,
+                      children: List.generate(
+                        7,
+                        (int index) => Chip(
+                          label: Text('Text ${index + 1}'),
+                          avatar: Icon(Icons.star),
+                          backgroundColor: Colors.pinkAccent,
+                        ),
+                      ),
+                    ),
                     Divider(color: Colors.black),
                     buildFooter()
                   ],
@@ -69,7 +75,9 @@ class _CompanyPageState extends State<CompanyPage> {
               ),
             )
           ],
-        )));
+        ),
+      ),
+    );
   }
 
 //image Header
@@ -86,15 +94,15 @@ class _CompanyPageState extends State<CompanyPage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           CircleAvatar(
-            backgroundImage: AssetImage('assets/images/me.png'),
+            backgroundImage: AssetImage('assets/images/logo.png'),
             radius: 40,
           ),
           CircleAvatar(
-            backgroundImage: AssetImage('assets/images/me.png'),
+            backgroundImage: AssetImage('assets/images/logo.png'),
             radius: 40,
           ),
           CircleAvatar(
-            backgroundImage: AssetImage('assets/images/me.png'),
+            backgroundImage: AssetImage('assets/images/logo.png'),
             radius: 40,
           ),
           SizedBox(

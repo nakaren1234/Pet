@@ -19,7 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
   // @override
   // void initState() {
   //   super.initState();
-  //   Firebase.initializeApp().then((value) => setupDisplayName());
+
   // }
 
   Widget registerButton() {
@@ -60,10 +60,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
   // Future<void> setupDisplayName() async {
   //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  //   await firebaseAuth.currentUser().then((response) {
-  //     UserUpdateInfo userUpdateInfo = UserUpateInfo();
-  //     userUpdateInfo.displayname = nameString;
-  //     response.updateProfile(userUpdateInfo);
+  //   // await firebaseAuth.currentUser().then((response) {
+  //   //   UserUpdateInfo userUpdateInfo = UserUpateInfo();
+  //   //   userUpdateInfo.displayname = nameString;
+  //   //   response.updateProfile(userUpdateInfo);
   //   });
   // }
 

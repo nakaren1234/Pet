@@ -1,3 +1,4 @@
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/FristPage.dart';
 import 'package:flutterapp/pages/HomePage.dart';
@@ -11,6 +12,57 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  //Explictie
+  // String login = '...';
+  //Method
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  // Future<void> findDisplayName() async {
+  //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  //   // ignore: deprecated_member_use
+  //   FirebaseUser firebaseUser = firebaseAuth.currentUser;
+  //   setState(() {
+  //     login = firebaseUser.displayName;
+  //   });
+  //   print('login = $login');
+  // }
+
+  Widget showLogin() {
+    return Text(
+      'Login By ',
+      style: TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic,
+        fontFamily: 'Lobster',
+      ),
+    );
+  }
+
+  Widget showLogo() {
+    return Container(
+      width: 32,
+      height: 32,
+      child: Image.asset('assets/images/logo.png'),
+    );
+  }
+
+  Widget showAppName() {
+    return Text(
+      'Smart Pet',
+      style: TextStyle(
+        fontSize: 30.0,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic,
+        fontFamily: 'Lobster',
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,12 +75,23 @@ class _MenuState extends State<Menu> {
                 decoration: BoxDecoration(
                   color: Colors.pinkAccent,
                 ),
-                child: Text(
-                  'เมนูหลัก',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    showLogo(),
+                    showAppName(),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    showLogin(),
+                    // Text(
+                    //   'เมนูหลัก',
+                    //   style: TextStyle(
+                    //     color: Colors.white,
+                    //     fontSize: 24,
+                    //   ),
+                    // ),
+                  ],
                 ),
               ),
               ListTile(

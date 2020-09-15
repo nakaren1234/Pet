@@ -14,6 +14,7 @@ class _PetPageState extends State<PetPage> {
         appBar: AppBar(
           backgroundColor: Colors.pinkAccent,
           title: Text('ประวัติสัตว์เลี้ยง'),
+          actions: [],
         ),
         body: SingleChildScrollView(
           child: Text('Hello'),
