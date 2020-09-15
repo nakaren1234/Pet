@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/FristPage.dart';
 import 'package:flutterapp/pages/HomePage.dart';
+import 'package:flutterapp/pages/NewsPage.dart';
 
 class Menu extends StatefulWidget {
   Menu({Key key}) : super(key: key);
@@ -65,14 +66,17 @@ class _MenuState extends State<Menu> {
                 leading: Icon(Icons.new_releases),
                 title: Text('ข่าวสาร'),
                 trailing: Icon(Icons.arrow_right),
-                selected:
-                    ModalRoute.of(context).settings.name == 'newsstack/news'
-                        ? true
-                        : false,
+                // selected:
+                //     ModalRoute.of(context).settings.name == 'newsstack/news'
+                //         ? true
+                //         : false,
                 onTap: () {
-                  Navigator.of(context, rootNavigator: true)
-                      .pushNamedAndRemoveUntil(
-                          '/newsstack', (Route<dynamic> route) => false);
+                  // Navigator.of(context, rootNavigator: true)
+                  //     .pushNamedAndRemoveUntil(
+                  //         '/newsstack', (Route<dynamic> route) => false);
+                  MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                      builder: (BuildContext context) => NewsPage());
+                  Navigator.of(context).push(materialPageRoute);
                 },
               ),
               ListTile(

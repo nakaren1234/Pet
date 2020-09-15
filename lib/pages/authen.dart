@@ -125,7 +125,7 @@ class _AuthenState extends State<Authen> {
     return RaisedButton(
       color: Colors.pinkAccent[200],
       child: Text(
-        'Loin',
+        'Login',
         style: TextStyle(color: Colors.black),
       ),
       onPressed: () {

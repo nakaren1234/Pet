@@ -11,7 +11,8 @@ class _CompanyPageState extends State<CompanyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('ข้อมูลบริษัท')),
+        appBar: AppBar(
+            backgroundColor: Colors.pinkAccent, title: Text('ข้อมูลบริษัท')),
         body: SingleChildScrollView(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

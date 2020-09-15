@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutterapp/pages/WebviewPage.dart';
 //import 'package:flutterapp/models/room.dart';
 import 'package:flutterapp/widgets/menu.dart';
 import 'dart:convert' as convert;
@@ -67,6 +68,11 @@ class _NewsPageState extends State<NewsPage> {
                   return Card(
                       child: InkWell(
                           onTap: () {
+                            // MaterialPageRoute materialPageRoute =
+                            //     MaterialPageRoute(
+                            //         builder: (BuildContext context) =>
+                            //             WebviewPage());
+                            // Navigator.of(context).push(materialPageRoute);
                             Navigator.pushNamed(context, 'newsstack/webview',
                                 arguments: {
                                   'url': articles[index]['url'],

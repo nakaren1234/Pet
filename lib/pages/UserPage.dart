@@ -11,7 +11,11 @@ class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('ประวัติผู้ใช้')),
+        appBar: AppBar(
+          backgroundColor: Colors.pinkAccent,
+          title: Text('ประวัติผู้ใช้'),
+          actions: [],
+        ),
         body: SingleChildScrollView(
           child: Text('Hello'),
         ));
