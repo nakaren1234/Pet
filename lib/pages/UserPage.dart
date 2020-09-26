@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/pages/addUserPage.dart';
+import 'package:flutterapp/widgets/addUserPage.dart';
+import 'package:flutterapp/widgets/showListUser.dart';
 
 class UserPage extends StatefulWidget {
   UserPage({Key key}) : super(key: key);
@@ -10,7 +11,7 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   //Explictie
-
+  Widget currenWidget = ShowListUser();
   //Method
   Widget addUser() {
     return IconButton(
@@ -29,15 +30,12 @@ class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.pinkAccent,
-          title: Text('User profile'),
-          actions: [
-            addUser(),
-          ],
-        ),
-        body: SingleChildScrollView(
-          child: Text('Hello'),
-        ));
+      appBar: AppBar(
+        backgroundColor: Colors.pinkAccent,
+        title: Text('User profile'),
+        actions: [addUser()],
+      ),
+      body: currenWidget,
+    );
   }
 }

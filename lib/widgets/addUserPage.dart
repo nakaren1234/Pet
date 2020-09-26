@@ -13,8 +13,9 @@ class _AddUserPageState extends State<AddUserPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
-        title: Text('เพิ่มข้อมูลผู้ใช้'),
+        title: Text('Add User'),
       ),
+      // body: currenWidget,
     );
   }
 }
