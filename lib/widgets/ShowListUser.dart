@@ -1,3 +1,5 @@
+// import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class ShowListUser extends StatefulWidget {
@@ -8,10 +10,22 @@ class ShowListUser extends StatefulWidget {
 }
 
 class _ShowListUserState extends State<ShowListUser> {
+  // Field
+
+  // Method
+
+  @override
+  void initState() {
+    super.initState();
+    readAllData();
+  }
+
+  Future<void> readAllData() async {}
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Show User'),
+      child: Text('Show User sky'),
     );
   }
 }
