@@ -22,8 +22,8 @@ class _ShowListUserState extends State<ShowListUser> {
   }
 
   Future<void> readAllData() async {
-    // ignore: deprecated_member_use
-    Firestore firestore = Firestore.instance;
+    // FirestoreFirestore firestore = FirestoreFirestore.instance;
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference collectionReference =
         firestore.collection('Userprofile');
     // ignore: await_only_futures
@@ -33,6 +33,7 @@ class _ShowListUserState extends State<ShowListUser> {
       for (var snapshot in snapshots) {
         print('snapshot = $snapshot');
         // print('Name = ${snapshot.data['Name]}');
+        // print('Name = ${snapshot.data['Name']}');
       }
     });
   }
