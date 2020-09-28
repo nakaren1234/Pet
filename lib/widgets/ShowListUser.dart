@@ -1,5 +1,6 @@
 // import 'dart:ffi';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ShowListUser extends StatefulWidget {
@@ -20,7 +21,21 @@ class _ShowListUserState extends State<ShowListUser> {
     readAllData();
   }
 
-  Future<void> readAllData() async {}
+  Future<void> readAllData() async {
+    // ignore: deprecated_member_use
+    Firestore firestore = Firestore.instance;
+    CollectionReference collectionReference =
+        firestore.collection('Userprofile');
+    // ignore: await_only_futures
+    await collectionReference.snapshots().listen((response) {
+      // ignore: deprecated_member_use
+      List<DocumentSnapshot> snapshots = response.documents;
+      for (var snapshot in snapshots) {
+        print('snapshot = $snapshot');
+        // print('Name = ${snapshot.data['Name]}');
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
