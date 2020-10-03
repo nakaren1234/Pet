@@ -32,7 +32,7 @@ class _ShowListUserState extends State<ShowListUser> {
       List<DocumentSnapshot> snapshots = response.documents;
       for (var snapshot in snapshots) {
         print('snapshot = $snapshot');
-        // print('Name = ${snapshot.data['Name]}');
+        print('Name = ${snapshot.data['Name']}');
         // print('Name = ${snapshot.data['Name']}');
       }
     });
