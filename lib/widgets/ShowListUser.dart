@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/models/userprofile_model.dart';
 
 class ShowListUser extends StatefulWidget {
   ShowListUser({Key key}) : super(key: key);
@@ -12,6 +13,7 @@ class ShowListUser extends StatefulWidget {
 
 class _ShowListUserState extends State<ShowListUser> {
   // Field
+  List<UserprofileModel> userprofileModels = List();
 
   // Method
 
@@ -35,6 +37,12 @@ class _ShowListUserState extends State<ShowListUser> {
         print('Name = ${snapshot.data['Name']}');
         // print(" = ${snapshot.data['Detail']}");
         // print('Name = ${snapshot.data['Name']}');
+
+        UserprofileModel userprofileModel =
+            UserprofileModel.fromMap(snapshot.data);
+        setState(() {
+          userprofileModels.add(userprofileModel);
+        });
       }
     });
   }
@@ -42,7 +50,12 @@ class _ShowListUserState extends State<ShowListUser> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Show User sky'),
+      child: ListView.builder(
+        itemCount: userprofileModels.length,
+        itemBuilder: (BuildContext buildContext, int index) {
+          return Text(userprofileModels[index].name);
+        },
+      ),
     );
   }
 }
