@@ -33,6 +33,7 @@ class _ShowListUserState extends State<ShowListUser> {
       for (var snapshot in snapshots) {
         print('snapshot = $snapshot');
         print('Name = ${snapshot.data['Name']}');
+        // print(" = ${snapshot.data['Detail']}");
         // print('Name = ${snapshot.data['Name']}');
       }
     });
