@@ -59,12 +59,25 @@ class _ShowListUserState extends State<ShowListUser> {
     return Text(userprofileModels[index].name);
   }
 
+  Widget showDetail(int index) {
+    String string = userprofileModels[index].detail;
+    if (string.length > 100) {
+      string = string.substring(0, 99);
+      string = '$string...';
+    }
+
+    return Text(string);
+  }
+
   Widget showText(int index) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.5,
       height: MediaQuery.of(context).size.width * 0.5,
       child: Column(
-        children: [],
+        children: [
+          showName(index),
+          showDetail(index),
+        ],
       ),
     );
   }
@@ -73,6 +86,7 @@ class _ShowListUserState extends State<ShowListUser> {
     return Row(
       children: [
         showImage(index),
+        showText(index),
       ],
     );
   }
