@@ -47,13 +47,43 @@ class _ShowListUserState extends State<ShowListUser> {
     });
   }
 
+  Widget showImage(int index) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.5,
+      height: MediaQuery.of(context).size.width * 0.5,
+      child: Image.network(userprofileModels[index].pathImage),
+    );
+  }
+
+  Widget showName(int index) {
+    return Text(userprofileModels[index].name);
+  }
+
+  Widget showText(int index) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.5,
+      height: MediaQuery.of(context).size.width * 0.5,
+      child: Column(
+        children: [],
+      ),
+    );
+  }
+
+  Widget showListView(int index) {
+    return Row(
+      children: [
+        showImage(index),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ListView.builder(
         itemCount: userprofileModels.length,
         itemBuilder: (BuildContext buildContext, int index) {
-          return Text(userprofileModels[index].name);
+          return showListView(index);
         },
       ),
     );
