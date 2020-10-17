@@ -49,14 +49,35 @@ class _ShowListUserState extends State<ShowListUser> {
 
   Widget showImage(int index) {
     return Container(
+      padding: EdgeInsets.all(20.0),
       width: MediaQuery.of(context).size.width * 0.5,
       height: MediaQuery.of(context).size.width * 0.5,
-      child: Image.network(userprofileModels[index].pathImage),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30.0),
+          image: DecorationImage(
+            image: NetworkImage(userprofileModels[index].pathImage),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 
   Widget showName(int index) {
-    return Text(userprofileModels[index].name);
+    return Row(
+      // mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          userprofileModels[index].name,
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+      ],
+    );
   }
 
   Widget showDetail(int index) {
@@ -66,15 +87,27 @@ class _ShowListUserState extends State<ShowListUser> {
       string = '$string...';
     }
 
-    return Text(string);
+    return Text(
+      string,
+      style: TextStyle(
+        fontSize: 16.0,
+        fontStyle: FontStyle.italic,
+      ),
+    );
   }
 
   Widget showText(int index) {
     return Container(
+      padding: EdgeInsets.only(right: 20.0),
       width: MediaQuery.of(context).size.width * 0.5,
-      height: MediaQuery.of(context).size.width * 0.5,
+      height: MediaQuery.of(context).size.width * 0.6,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
+          showName(index),
+          showName(index),
+          showName(index),
+          showName(index),
           showName(index),
           showDetail(index),
         ],
