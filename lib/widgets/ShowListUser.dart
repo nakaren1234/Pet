@@ -98,15 +98,12 @@ class _ShowListUserState extends State<ShowListUser> {
 
   Widget showText(int index) {
     return Container(
-      padding: EdgeInsets.only(right: 20.0),
+      padding: EdgeInsets.only(right: 20.0, top: 30.0),
       width: MediaQuery.of(context).size.width * 0.5,
       height: MediaQuery.of(context).size.width * 0.6,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          showName(index),
-          showName(index),
-          showName(index),
           showName(index),
           showName(index),
           showDetail(index),
