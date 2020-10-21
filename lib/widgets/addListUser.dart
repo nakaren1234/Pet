@@ -11,6 +11,39 @@ class _AddListUserState extends State<AddListUser> {
   //Field
 
   //Method
+
+  Widget cameraButton() {
+    return IconButton(
+      icon: Icon(
+        Icons.add_a_photo,
+        size: 36.0,
+        color: Colors.pink[300],
+      ),
+      onPressed: () {},
+    );
+  }
+
+  Widget galleryButton() {
+    return IconButton(
+      icon: Icon(
+        Icons.add_photo_alternate,
+        size: 36.0,
+        color: Colors.pink[300],
+      ),
+      onPressed: () {},
+    );
+  }
+
+  Widget showButton() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        cameraButton(),
+        galleryButton(),
+      ],
+    );
+  }
+
   Widget showImage() {
     return Container(
       padding: EdgeInsets.all(20.0),
@@ -23,8 +56,10 @@ class _AddListUserState extends State<AddListUser> {
 
   Widget showContent() {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         showImage(),
+        showButton(),
       ],
     );
   }
