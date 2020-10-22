@@ -11,6 +11,55 @@ class _AddListUserState extends State<AddListUser> {
   //Field
 
   //Method
+  Widget uploadButton() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          margin: EdgeInsets.only(left: 20.0),
+          width: MediaQuery.of(context).size.width * 0.5,
+          child: RaisedButton.icon(
+            color: Colors.pinkAccent,
+            onPressed: () {},
+            icon: Icon(
+              Icons.save_alt,
+              color: Colors.black,
+            ),
+            label: Text(
+              'Save Data',
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget nameForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: TextField(
+        decoration: InputDecoration(
+          helperText: 'Type your Name of User',
+          labelText: 'UserName',
+          icon: Icon(Icons.face),
+        ),
+      ),
+    );
+  }
+
+  Widget detailForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: TextField(
+        decoration: InputDecoration(
+          helperText: 'Type your Detail of User',
+          labelText: 'Detail',
+          icon: Icon(Icons.assignment_turned_in),
+        ),
+      ),
+    );
+  }
 
   Widget cameraButton() {
     return IconButton(
@@ -55,12 +104,18 @@ class _AddListUserState extends State<AddListUser> {
   }
 
   Widget showContent() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        showImage(),
-        showButton(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          showImage(),
+          showButton(),
+          nameForm(),
+          detailForm(),
+          SizedBox(height: 30.0),
+          uploadButton(),
+        ],
+      ),
     );
   }
 
@@ -70,6 +125,7 @@ class _AddListUserState extends State<AddListUser> {
       child: Stack(
         children: [
           showContent(),
+          uploadButton(),
         ],
       ),
     );
