@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddListUser extends StatefulWidget {
   AddListUser({Key key}) : super(key: key);
@@ -9,7 +12,8 @@ class AddListUser extends StatefulWidget {
 
 class _AddListUserState extends State<AddListUser> {
   //Field
-
+  File file;
+  final picker = ImagePicker();
   //Method
   Widget uploadButton() {
     return Column(
@@ -68,8 +72,34 @@ class _AddListUserState extends State<AddListUser> {
         size: 36.0,
         color: Colors.pink[300],
       ),
-      onPressed: () {},
+      onPressed: () {
+        chooseImage(ImageSource.camera);
+      },
     );
+  }
+
+  Future<void> chooseImage(ImageSource imageSource) async {
+    try {
+      var object = await picker.getImage(
+        source: imageSource,
+        maxWidth: 800.0,
+        maxHeight: 800.0,
+      );
+
+      //    setState(() {
+      //   if (object != null) {
+      //     file = File(object.path);
+      //   } else {
+      //     file = File();
+      //     print('No image selected.');
+      //   }
+      // });
+
+      setState(() {
+        // file = object as File;
+        file = File(object.path);
+      });
+    } catch (e) {}
   }
 
   Widget galleryButton() {
@@ -79,7 +109,9 @@ class _AddListUserState extends State<AddListUser> {
         size: 36.0,
         color: Colors.pink[300],
       ),
-      onPressed: () {},
+      onPressed: () {
+        chooseImage(ImageSource.gallery);
+      },
     );
   }
 
@@ -99,7 +131,9 @@ class _AddListUserState extends State<AddListUser> {
       // color: Colors.blue,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.3,
-      child: Image.asset('assets/images/pic.png'),
+      child: file == null
+          ? Image.asset('assets/images/pic.png')
+          : Image.file(file),
     );
   }
 
