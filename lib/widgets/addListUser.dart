@@ -14,6 +14,7 @@ class _AddListUserState extends State<AddListUser> {
   //Field
   File file;
   final picker = ImagePicker();
+  String name, detail;
   //Method
   Widget uploadButton() {
     return Column(
@@ -24,7 +25,20 @@ class _AddListUserState extends State<AddListUser> {
           width: MediaQuery.of(context).size.width * 0.5,
           child: RaisedButton.icon(
             color: Colors.pinkAccent,
-            onPressed: () {},
+            onPressed: () {
+              print('You Click Upload');
+
+              if (file == null) {
+                showAlert('Non Choose Image', 'Please Click Camara or Gallery');
+              } else if (name == null ||
+                  name.isEmpty ||
+                  detail == null ||
+                  detail.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else {
+                //upload value to firebase
+              }
+            },
             icon: Icon(
               Icons.save_alt,
               color: Colors.black,
@@ -39,10 +53,32 @@ class _AddListUserState extends State<AddListUser> {
     );
   }
 
+  Future<void> showAlert(String title, String message) async {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(title),
+            content: Text(message),
+            actions: [
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              )
+            ],
+          );
+        });
+  }
+
   Widget nameForm() {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (String string) {
+          name = string.trim();
+        },
         decoration: InputDecoration(
           helperText: 'Type your Name of User',
           labelText: 'UserName',
@@ -56,6 +92,9 @@ class _AddListUserState extends State<AddListUser> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (value) {
+          detail = value.trim();
+        },
         decoration: InputDecoration(
           helperText: 'Type your Detail of User',
           labelText: 'Detail',
