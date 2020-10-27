@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'dart:math';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -14,7 +16,7 @@ class _AddListUserState extends State<AddListUser> {
   //Field
   File file;
   final picker = ImagePicker();
-  String name, detail;
+  String name, detail, urlPicture;
   //Method
   Widget uploadButton() {
     return Column(
@@ -37,6 +39,7 @@ class _AddListUserState extends State<AddListUser> {
                 showAlert('Have Space', 'Please Fill Every Blank');
               } else {
                 //upload value to firebase
+                uploadPictureToStorage();
               }
             },
             icon: Icon(
@@ -51,6 +54,20 @@ class _AddListUserState extends State<AddListUser> {
         ),
       ],
     );
+  }
+
+  Future<void> uploadPictureToStorage() async {
+    Random random = Random();
+    int i = random.nextInt(100000);
+
+    FirebaseStorage firebaseStorage = FirebaseStorage.instance;
+    StorageReference storageReference =
+        firebaseStorage.ref().child('Userimage/userimage$i.jpg');
+    StorageUploadTask storageUploadTask = storageReference.putFile(file);
+
+    urlPicture =
+        await (await storageUploadTask.onComplete).ref.getDownloadURL();
+    print('urlpicture = $urlPicture');
   }
 
   Future<void> showAlert(String title, String message) async {
@@ -198,7 +215,7 @@ class _AddListUserState extends State<AddListUser> {
       child: Stack(
         children: [
           showContent(),
-          uploadButton(),
+          // uploadButton(),
         ],
       ),
     );
