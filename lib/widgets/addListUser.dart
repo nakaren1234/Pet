@@ -1,8 +1,10 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutterapp/pages/UserPage.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddListUser extends StatefulWidget {
@@ -68,6 +70,24 @@ class _AddListUserState extends State<AddListUser> {
     urlPicture =
         await (await storageUploadTask.onComplete).ref.getDownloadURL();
     print('urlpicture = $urlPicture');
+    insertValueToFireStore();
+  }
+
+  Future<void> insertValueToFireStore() async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    Map<String, dynamic> map = Map();
+    map['Name'] = name;
+    map['Detail'] = detail;
+    map['PathImage'] = urlPicture;
+
+    await firestore.collection('Userprofile').doc().set(map).then((value) {
+      print('insert success');
+      // MaterialPageRoute route = MaterialPageRoute(
+      //   builder: (value) => UserPage(),
+      // );
+      // Navigator.of(context).pushAndRemoveUntil(route, (value) => false);
+    });
   }
 
   Future<void> showAlert(String title, String message) async {

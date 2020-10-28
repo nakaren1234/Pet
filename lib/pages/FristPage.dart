@@ -23,6 +23,14 @@ class _FristPageState extends State<FristPage> {
 
   // Future<void> checkStatus() async {
   //   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+
+  //   User firebaseUser = firebaseAuth.currentUser;
+  //   if (firebaseUser != null) {
+  //     MaterialPageRoute materialPageRoute =
+  //         MaterialPageRoute(builder: (BuildContext context) => HomePage());
+  //     Navigator.of(context).pushAndRemoveUntil(
+  //         materialPageRoute, (Route<dynamic> route) => false);
+  //   }
   // }
 
   Widget showLogo() {
