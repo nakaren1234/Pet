@@ -1,9 +1,5 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/widgets/ShowDetailUser.dart';
-// import 'package:flutterapp/widgets/ShowListUser.dart';
-// import 'package:flutterapp/widgets/addListUser.dart';
-// import 'package:flutterapp/models/userprofile_model.dart';
+import 'package:flutterapp/pages/addPetPage.dart';
 
 class PetPage extends StatefulWidget {
   PetPage({Key key}) : super(key: key);
@@ -13,42 +9,24 @@ class PetPage extends StatefulWidget {
 }
 
 class _PetPageState extends State<PetPage> {
-  //field
-  // List<UserprofileModel> userprofileModels = List();
+  //Explictie
 
-  Widget petWidget = ShowDetailUser();
+  // Widget petWidget = ShowDetailUser();
 
   //method
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   readAllData();
-  // }
-
-  // Future<void> readAllData() async {
-  //   // FirestoreFirestore firestore = FirestoreFirestore.instance;
-  //   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  //   CollectionReference collectionReference =
-  //       firestore.collection('Userprofile');
-  //   // ignore: await_only_futures
-  //   await collectionReference.snapshots().listen((response) {
-  //     // ignore: deprecated_member_use
-  //     List<DocumentSnapshot> snapshots = response.documents;
-  //     for (var snapshot in snapshots) {
-  //       print('snapshot = $snapshot');
-  //       print('Name = ${snapshot.data['Name']}');
-  //       // print(" = ${snapshot.data['Detail']}");
-  //       // print('Name = ${snapshot.data['Name']}');
-
-  //       UserprofileModel userprofileModel =
-  //           UserprofileModel.fromMap(snapshot.data);
-  //       setState(() {
-  //         userprofileModels.add(userprofileModel);
-  //       });
-  //     }
-  //   });
-  // }
+  Widget addPet() {
+    return IconButton(
+      icon: Icon(Icons.add_box),
+      iconSize: 30.0,
+      tooltip: 'เพิ่มข้อมูลสัตว์เลี้ยง',
+      onPressed: () {
+        MaterialPageRoute materialPageRoute =
+            MaterialPageRoute(builder: (BuildContext context) => AddPetPage());
+        Navigator.of(context).push(materialPageRoute);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +34,9 @@ class _PetPageState extends State<PetPage> {
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
         title: Text('ประวัติสัตว์เลี้ยง'),
-        actions: [],
+        actions: [addPet()],
       ),
-      body: petWidget,
+      // body: petWidget,
     );
   }
 }

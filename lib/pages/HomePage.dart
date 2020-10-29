@@ -176,7 +176,12 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.pets, size: 80, color: Colors.pinkAccent),
+                    // Icon(Icons.pets, size: 80, color: Colors.pinkAccent),
+                    Image.asset(
+                      'assets/images/pic.png',
+                      width: 50.0,
+                      height: 50.0,
+                    ),
                     Text('ประวัติสัตว์เลี้ยง',
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 20))
