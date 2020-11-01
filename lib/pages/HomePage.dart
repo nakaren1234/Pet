@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutterapp/pages/CompanyPage.dart';
 import 'package:flutterapp/pages/ContactPage.dart';
 import 'package:flutterapp/pages/FristPage.dart';
@@ -7,6 +10,7 @@ import 'package:flutterapp/pages/PetPage.dart';
 import 'package:flutterapp/pages/UserPage.dart';
 import 'package:flutterapp/widgets/logo.dart';
 import 'package:flutterapp/widgets/menu.dart';
+import 'package:image_picker/image_picker.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -18,8 +22,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // Explictie
   var fromAbout; //dynamic
-
+  File file;
+  final picker = ImagePicker();
   //Method
+
+  Future<void> chooseImage(ImageSource imageSource) async {
+    try {
+      var object = await picker.getImage(
+        source: imageSource,
+        maxWidth: 800.0,
+        maxHeight: 800.0,
+      );
+      setState(() {
+        // file = object as File;
+        file = File(object.path);
+      });
+    } catch (e) {}
+  }
+
   Widget signOutButton() {
     return IconButton(
       icon: Icon(Icons.exit_to_app),
@@ -191,12 +211,18 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    IconButton(
+                        icon: SvgPicture.asset('assets/icons/camera.svg'),
+                        iconSize: 70.0,
+                        onPressed: () {
+                          chooseImage(ImageSource.camera);
+                        }),
                     // Icon(Icons.camera_alt, size: 80, color: Colors.pinkAccent),
-                    Image.asset(
-                      'assets/images/camera.png',
-                      width: 90.0,
-                      height: 90.0,
-                    ),
+                    // Image.asset(
+                    //   'assets/images/camera.png',
+                    //   width: 90.0,
+                    //   height: 90.0,
+                    // ),
                     Text('Camera',
                         style: TextStyle(
                           fontSize: 20,

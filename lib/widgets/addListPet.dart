@@ -13,25 +13,63 @@ class _AddListPetState extends State<AddListPet> {
 
   //Method
 
+  Widget uploadButton() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          margin: EdgeInsets.only(left: 20.0),
+          width: MediaQuery.of(context).size.width * 0.3,
+          child: RaisedButton.icon(
+            color: Colors.pinkAccent,
+            onPressed: () {},
+            icon: Icon(
+              Icons.save_alt,
+              color: Colors.black,
+            ),
+            label: Text(
+              'Save Data',
+              style:
+                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget nameForm() {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
         decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.face,
-            color: Colors.green,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-          focusedBorder: OutlineInputBorder(),
+          // prefixIcon: Icon(
+          //   Icons.face,
+          //   color: Colors.green,
+          // ),
+          // enabledBorder: OutlineInputBorder(
+          //   borderRadius: BorderRadius.all(
+          //     Radius.circular(10.0),
+          //   ),
+          //   borderSide: BorderSide(color: Colors.grey),
+          // ),
+          // focusedBorder: OutlineInputBorder(),
           labelText: 'PetName',
-          helperText: 'Type your Name of Pet',
-          // icon: Icon(Icons.face),
+          // helperText: 'Type your Name of Pet',
+          icon: Icon(Icons.face, size: 36),
+        ),
+      ),
+    );
+  }
+
+  Widget breedForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: 'Breed',
+          // helperText: 'Type your Name of Pet',
+          icon: Icon(Icons.pets, color: Colors.red),
         ),
       ),
     );
@@ -39,23 +77,77 @@ class _AddListPetState extends State<AddListPet> {
 
   Widget genderForm() {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.3,
+      width: MediaQuery.of(context).size.width * 0.35,
       child: TextField(
         decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.face,
-            color: Colors.green,
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(10.0),
-            ),
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-          focusedBorder: OutlineInputBorder(),
           labelText: 'Gender',
-          helperText: 'Type Male or Female',
-          // icon: Icon(Icons.face),
+          // helperText: 'Type Male or Female',
+          icon: Icon(Icons.accessibility_new),
+        ),
+      ),
+    );
+  }
+
+  Widget colorForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.35,
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: 'Color',
+          // helperText: 'Type Male or Female',
+          icon: Icon(Icons.color_lens, color: Colors.orange),
+        ),
+      ),
+    );
+  }
+
+  Widget dobForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: 'D.O.B',
+          // helperText: 'Type Male or Female',
+          icon: Icon(Icons.cake, color: Colors.orange),
+        ),
+      ),
+    );
+  }
+
+  Widget ageForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: 'Age',
+          // helperText: 'Type Male or Female',
+          icon: Icon(Icons.assignment, color: Colors.orange),
+        ),
+      ),
+    );
+  }
+
+  Widget weightForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: 'Weight',
+          // helperText: 'Type Male or Female',
+          icon: Icon(Icons.line_weight, color: Colors.orange),
+        ),
+      ),
+    );
+  }
+
+  Widget ownerForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: TextField(
+        decoration: InputDecoration(
+          labelText: 'Owner',
+          // helperText: 'Type Male or Female',
+          icon: Icon(Icons.account_circle, color: Colors.orange),
         ),
       ),
     );
@@ -108,9 +200,26 @@ class _AddListPetState extends State<AddListPet> {
           showImage(),
           showButton(),
           SizedBox(height: 30.0),
-          nameForm(),
+          // nameForm(),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                child: nameForm(),
+              ),
+            ],
+          ),
           SizedBox(height: 10.0),
-          genderForm(),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                child: breedForm(),
+              ),
+            ],
+          ),
+          SizedBox(height: 10.0),
+
           Row(
             children: [
               Container(
@@ -118,8 +227,8 @@ class _AddListPetState extends State<AddListPet> {
                 child: genderForm(),
               ),
               Container(
-                padding: EdgeInsets.only(left: 40.0),
-                child: genderForm(),
+                padding: EdgeInsets.only(left: 20.0),
+                child: colorForm(),
               ),
             ],
           ),
@@ -128,14 +237,39 @@ class _AddListPetState extends State<AddListPet> {
             children: [
               Container(
                 padding: EdgeInsets.only(left: 20.0),
-                child: genderForm(),
+                child: dobForm(),
               ),
             ],
           ),
-          genderForm(),
-          genderForm(),
-          genderForm(),
-          genderForm(),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                child: ageForm(),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                child: weightForm(),
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                child: ownerForm(),
+              ),
+            ],
+          ),
+          SizedBox(height: 30.0),
+          uploadButton(),
         ],
       ),
     );
