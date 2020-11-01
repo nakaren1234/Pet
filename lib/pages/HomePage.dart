@@ -101,48 +101,6 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                // Navigator.pushNamed(context, 'homestack/company');
-                MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                    builder: (BuildContext context) => CompanyPage());
-                Navigator.of(context).push(materialPageRoute);
-              },
-              child: Container(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(Icons.library_books,
-                        size: 80, color: Colors.pinkAccent),
-                    Text('คู่มือการใช้งาน', style: TextStyle(fontSize: 20))
-                  ],
-                ),
-                color: Colors.white70,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Icon(Icons.map, size: 80, color: Colors.pinkAccent),
-                  Text('แผนที่', style: TextStyle(fontSize: 20))
-                ],
-              ),
-              color: Colors.white70,
-            ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Icon(Icons.camera_alt, size: 80, color: Colors.pinkAccent),
-                  Text('กล้อง', style: TextStyle(fontSize: 20))
-                ],
-              ),
-              color: Colors.white70,
-            ),
-            GestureDetector(
-              onTap: () {
                 // Navigator.pushNamed(context, 'homestack/user');
                 MaterialPageRoute materialPageRoute = MaterialPageRoute(
                     builder: (BuildContext context) => UserPage());
@@ -153,11 +111,19 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.person, size: 80, color: Colors.pinkAccent),
+                    // Icon(Icons.person, size: 80, color: Colors.pinkAccent),
+                    Image.asset(
+                      'assets/images/user.png',
+                      width: 90.0,
+                      height: 90.0,
+                    ),
                     Text(
-                      'ประวัติผู้ใช้',
+                      'User Profile',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
@@ -178,18 +144,70 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     // Icon(Icons.pets, size: 80, color: Colors.pinkAccent),
                     Image.asset(
-                      'assets/images/pic.png',
-                      width: 50.0,
-                      height: 50.0,
+                      'assets/images/owl.png',
+                      width: 70.0,
+                      height: 70.0,
                     ),
-                    Text('ประวัติสัตว์เลี้ยง',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 20))
+                    SizedBox(height: 15),
+                    Text(
+                      'Pet Profile',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
                   ],
                 ),
                 color: Colors.white70,
               ),
             ),
+
+            GestureDetector(
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // Icon(Icons.map, size: 80, color: Colors.pinkAccent),
+                    Image.asset(
+                      'assets/images/route.png',
+                      width: 90.0,
+                      height: 90.0,
+                    ),
+                    Text('Map',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ))
+                  ],
+                ),
+                color: Colors.white70,
+              ),
+            ),
+            GestureDetector(
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // Icon(Icons.camera_alt, size: 80, color: Colors.pinkAccent),
+                    Image.asset(
+                      'assets/images/camera.png',
+                      width: 90.0,
+                      height: 90.0,
+                    ),
+                    Text('Camera',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ))
+                  ],
+                ),
+                color: Colors.white70,
+              ),
+            ),
+
             GestureDetector(
               onTap: () async {
                 // fromAbout = await Navigator.pushNamed(
@@ -210,10 +228,69 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.person, size: 80, color: Colors.pinkAccent),
+                    // Icon(Icons.person, size: 80, color: Colors.pinkAccent),
+                    Image.asset(
+                      'assets/images/aboutuser.png',
+                      width: 90.0,
+                      height: 90.0,
+                    ),
                     Text('เกี่ยวกับเรา ${fromAbout ?? ''}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 20))
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ))
+                  ],
+                ),
+                color: Colors.white70,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                // Navigator.pushNamed(context, 'homestack/company');
+                MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                    builder: (BuildContext context) => CompanyPage());
+                Navigator.of(context).push(materialPageRoute);
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                // decoration:
+                //     BoxDecoration(borderRadius: BorderRadius.circular(10.0)),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    // Icon(Icons.library_books,
+                    //     size: 80, color: Colors.pinkAccent),
+                    Image.asset(
+                      'assets/images/read.png',
+                      width: 90.0,
+                      height: 90.0,
+                    ),
+                    Text(
+                      'User Guide',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+                color: Colors.white70,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                // Navigator.pushNamed(context, 'homestack/company');
+                MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                    builder: (BuildContext context) => CompanyPage());
+                Navigator.of(context).push(materialPageRoute);
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.library_books,
+                        size: 80, color: Colors.pinkAccent),
+                    Text('คู่มือการใช้งาน', style: TextStyle(fontSize: 20))
                   ],
                 ),
                 color: Colors.white70,

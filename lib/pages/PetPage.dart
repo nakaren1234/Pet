@@ -19,7 +19,7 @@ class _PetPageState extends State<PetPage> {
     return IconButton(
       icon: Icon(Icons.add_box),
       iconSize: 30.0,
-      tooltip: 'เพิ่มข้อมูลสัตว์เลี้ยง',
+      tooltip: 'Add Pet Profile',
       onPressed: () {
         MaterialPageRoute materialPageRoute =
             MaterialPageRoute(builder: (BuildContext context) => AddPetPage());
@@ -33,7 +33,7 @@ class _PetPageState extends State<PetPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
-        title: Text('ประวัติสัตว์เลี้ยง'),
+        title: Text('Pet Profile'),
         actions: [addPet()],
       ),
       // body: petWidget,

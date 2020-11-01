@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 // import 'package:flutterapp/pages/UserPage.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -26,7 +27,7 @@ class _AddListUserState extends State<AddListUser> {
       children: [
         Container(
           margin: EdgeInsets.only(left: 20.0),
-          width: MediaQuery.of(context).size.width * 0.5,
+          width: MediaQuery.of(context).size.width * 0.3,
           child: RaisedButton.icon(
             color: Colors.pinkAccent,
             onPressed: () {
@@ -117,9 +118,20 @@ class _AddListUserState extends State<AddListUser> {
           name = string.trim();
         },
         decoration: InputDecoration(
-          helperText: 'Type your Name of User',
+          prefixIcon: Icon(
+            Icons.face,
+            color: Colors.green,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: OutlineInputBorder(),
           labelText: 'UserName',
-          icon: Icon(Icons.face),
+          helperText: 'Type your Name of User',
+          // icon: Icon(Icons.face),
         ),
       ),
     );
@@ -133,9 +145,20 @@ class _AddListUserState extends State<AddListUser> {
           detail = value.trim();
         },
         decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.assignment_turned_in,
+            color: Colors.green,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: OutlineInputBorder(),
           helperText: 'Type your Detail of User',
           labelText: 'Detail',
-          icon: Icon(Icons.assignment_turned_in),
+          // icon: Icon(Icons.assignment_turned_in),
         ),
       ),
     );
@@ -143,11 +166,13 @@ class _AddListUserState extends State<AddListUser> {
 
   Widget cameraButton() {
     return IconButton(
-      icon: Icon(
-        Icons.add_a_photo,
-        size: 36.0,
-        color: Colors.pink[300],
-      ),
+      icon: SvgPicture.asset('assets/icons/camera.svg'),
+      iconSize: 36.0,
+      // icon: Icon(
+      //   Icons.add_a_photo,
+      //   size: 36.0,
+      //   color: Colors.pink[300],
+      // ),
       onPressed: () {
         chooseImage(ImageSource.camera);
       },
@@ -180,11 +205,7 @@ class _AddListUserState extends State<AddListUser> {
 
   Widget galleryButton() {
     return IconButton(
-      icon: Icon(
-        Icons.add_photo_alternate,
-        size: 36.0,
-        color: Colors.pink[300],
-      ),
+      icon: SvgPicture.asset('assets/icons/focus.svg'),
       onPressed: () {
         chooseImage(ImageSource.gallery);
       },
@@ -220,7 +241,9 @@ class _AddListUserState extends State<AddListUser> {
         children: [
           showImage(),
           showButton(),
+          SizedBox(height: 20.0),
           nameForm(),
+          SizedBox(height: 10.0),
           detailForm(),
           SizedBox(height: 30.0),
           uploadButton(),

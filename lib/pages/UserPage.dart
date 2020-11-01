@@ -17,7 +17,7 @@ class _UserPageState extends State<UserPage> {
     return IconButton(
       icon: Icon(Icons.person_add),
       iconSize: 30.0,
-      // color: Colors.blue,
+      color: Colors.black,
       tooltip: 'เพิ่มข้อมูลผู้ใช้',
       onPressed: () {
         MaterialPageRoute materialPageRoute =
@@ -32,7 +32,7 @@ class _UserPageState extends State<UserPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
-        title: Text('User profile'),
+        title: Text('User Profile'),
         actions: [addUser()],
       ),
       //ดึงมาจาก showliteuser

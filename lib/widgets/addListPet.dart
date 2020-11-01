@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class AddListPet extends StatefulWidget {
   AddListPet({Key key}) : super(key: key);
@@ -28,8 +29,32 @@ class _AddListPetState extends State<AddListPet> {
             borderSide: BorderSide(color: Colors.grey),
           ),
           focusedBorder: OutlineInputBorder(),
-          labelText: 'UserName',
-          // helperText: 'Type your Name of User',
+          labelText: 'PetName',
+          helperText: 'Type your Name of Pet',
+          // icon: Icon(Icons.face),
+        ),
+      ),
+    );
+  }
+
+  Widget genderForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.3,
+      child: TextField(
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.face,
+            color: Colors.green,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: OutlineInputBorder(),
+          labelText: 'Gender',
+          helperText: 'Type Male or Female',
           // icon: Icon(Icons.face),
         ),
       ),
@@ -38,7 +63,7 @@ class _AddListPetState extends State<AddListPet> {
 
   Widget cameraButton() {
     return IconButton(
-      icon: Icon(Icons.add_a_photo),
+      icon: SvgPicture.asset('assets/icons/camera.svg'),
       iconSize: 36.0,
       color: Colors.green,
       onPressed: () {},
@@ -47,7 +72,8 @@ class _AddListPetState extends State<AddListPet> {
 
   Widget galleryButton() {
     return IconButton(
-      icon: Icon(Icons.add_photo_alternate),
+      // icon: Icon(Icons.add_photo_alternate),
+      icon: SvgPicture.asset('assets/icons/focus.svg'),
       iconSize: 36.0,
       color: Colors.green,
       onPressed: () {},
@@ -83,6 +109,33 @@ class _AddListPetState extends State<AddListPet> {
           showButton(),
           SizedBox(height: 30.0),
           nameForm(),
+          SizedBox(height: 10.0),
+          genderForm(),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                child: genderForm(),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 40.0),
+                child: genderForm(),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.only(left: 20.0),
+                child: genderForm(),
+              ),
+            ],
+          ),
+          genderForm(),
+          genderForm(),
+          genderForm(),
+          genderForm(),
         ],
       ),
     );
