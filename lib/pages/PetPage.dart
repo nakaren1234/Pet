@@ -34,7 +34,10 @@ class _PetPageState extends State<PetPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
-        title: Text('Pet Profile'),
+        title: Text(
+          'Pet Profile',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         actions: [addPet()],
       ),
       body: petWidget,
