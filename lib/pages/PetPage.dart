@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/addPetPage.dart';
+import 'package:flutterapp/widgets/ShowListPet.dart';
 
 class PetPage extends StatefulWidget {
   PetPage({Key key}) : super(key: key);
@@ -11,7 +12,7 @@ class PetPage extends StatefulWidget {
 class _PetPageState extends State<PetPage> {
   //Explictie
 
-  // Widget petWidget = ShowDetailUser();
+  Widget petWidget = ShowListPet();
 
   //method
 
@@ -36,7 +37,7 @@ class _PetPageState extends State<PetPage> {
         title: Text('Pet Profile'),
         actions: [addPet()],
       ),
-      // body: petWidget,
+      body: petWidget,
     );
   }
 }
