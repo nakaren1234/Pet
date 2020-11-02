@@ -59,6 +59,7 @@ class _AddListUserState extends State<AddListUser> {
     );
   }
 
+  //อัพpathรูป
   Future<void> uploadPictureToStorage() async {
     Random random = Random();
     int i = random.nextInt(100000);
@@ -74,6 +75,7 @@ class _AddListUserState extends State<AddListUser> {
     insertValueToFireStore();
   }
 
+  //เพิ่มค่าลงในไฟเเบรดเลือกคอเลคชั่น
   Future<void> insertValueToFireStore() async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -91,6 +93,7 @@ class _AddListUserState extends State<AddListUser> {
     });
   }
 
+  //โชว์ว่าลืมกรอกอะไรไหม
   Future<void> showAlert(String title, String message) async {
     showDialog(
         context: context,

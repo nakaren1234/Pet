@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddListPet extends StatefulWidget {
   AddListPet({Key key}) : super(key: key);
@@ -10,7 +13,8 @@ class AddListPet extends StatefulWidget {
 
 class _AddListPetState extends State<AddListPet> {
   //Field
-
+  File file;
+  final picker = ImagePicker();
   //Method
 
   Widget uploadButton() {
@@ -22,7 +26,9 @@ class _AddListPetState extends State<AddListPet> {
           width: MediaQuery.of(context).size.width * 0.3,
           child: RaisedButton.icon(
             color: Colors.pinkAccent,
-            onPressed: () {},
+            onPressed: () {
+              print('You Click');
+            },
             icon: Icon(
               Icons.save_alt,
               color: Colors.black,
@@ -36,6 +42,25 @@ class _AddListPetState extends State<AddListPet> {
         ),
       ],
     );
+  }
+
+  Future<void> showAlert(String title, String message) async {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(title),
+            content: Text(message),
+            actions: [
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('OK'),
+              )
+            ],
+          );
+        });
   }
 
   Widget nameForm() {
@@ -158,7 +183,9 @@ class _AddListPetState extends State<AddListPet> {
       icon: SvgPicture.asset('assets/icons/camera.svg'),
       iconSize: 36.0,
       color: Colors.green,
-      onPressed: () {},
+      onPressed: () {
+        chooseImage(ImageSource.camera);
+      },
     );
   }
 
@@ -168,8 +195,25 @@ class _AddListPetState extends State<AddListPet> {
       icon: SvgPicture.asset('assets/icons/focus.svg'),
       iconSize: 36.0,
       color: Colors.green,
-      onPressed: () {},
+      onPressed: () {
+        chooseImage(ImageSource.gallery);
+      },
     );
+  }
+
+  Future<void> chooseImage(ImageSource imageSource) async {
+    try {
+      var object = await picker.getImage(
+        source: imageSource,
+        maxWidth: 800.0,
+        maxHeight: 800.0,
+      );
+
+      setState(() {
+        // file = object as File;
+        file = File(object.path);
+      });
+    } catch (e) {}
   }
 
   Widget showButton() {
@@ -188,7 +232,9 @@ class _AddListPetState extends State<AddListPet> {
       // color: Colors.green,
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.3,
-      child: Image.asset('assets/images/pic.png'),
+      child: file == null
+          ? Image.asset('assets/images/pic.png')
+          : Image.file(file),
     );
   }
 
