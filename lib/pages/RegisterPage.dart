@@ -212,6 +212,8 @@ class _RegisterPageState extends State<RegisterPage> {
             nameText(),
             emailText(),
             passwordText(),
+            // SizedBox(height: 30.0),
+            // registerButton(),
           ],
         ),
       ),

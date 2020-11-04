@@ -260,7 +260,7 @@ class _HomePageState extends State<HomePage> {
                       width: 90.0,
                       height: 90.0,
                     ),
-                    Text('เกี่ยวกับเรา ${fromAbout ?? ''}',
+                    Text('Contact ${fromAbout ?? ''}',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,

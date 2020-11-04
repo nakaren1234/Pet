@@ -1,8 +1,11 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutterapp/pages/FristPage.dart';
 import 'package:flutterapp/pages/HomePage.dart';
-import 'package:flutterapp/pages/NewsPage.dart';
+// import 'package:flutterapp/pages/NewsPage.dart';
+import 'package:flutterapp/pages/PetPage.dart';
+import 'package:flutterapp/pages/UserPage.dart';
 
 class Menu extends StatefulWidget {
   Menu({Key key}) : super(key: key);
@@ -95,8 +98,11 @@ class _MenuState extends State<Menu> {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.home),
-                title: Text('หน้าหลัก'),
+                leading: Icon(
+                  Icons.home,
+                  color: Colors.black,
+                ),
+                title: Text('Home'),
                 trailing: Icon(Icons.arrow_right),
                 // selected:
                 //     ModalRoute.of(context).settings.name == 'homestack/home'
@@ -111,34 +117,48 @@ class _MenuState extends State<Menu> {
                   Navigator.of(context).push(materialPageRoute);
                 },
               ),
-              // ListTile(
-              //   leading: Icon(Icons.border_all),
-              //   title: Text('สินค้า'),
-              //   trailing: Icon(Icons.arrow_right),
-              //   selected: ModalRoute.of(context).settings.name ==
-              //           'productstack/product'
-              //       ? true
-              //       : false,
-              //   onTap: () {
-              //     Navigator.of(context, rootNavigator: true)
-              //         .pushNamedAndRemoveUntil(
-              //             '/productstack', (Route<dynamic> route) => false);
-              //   },
-              // ),
               ListTile(
-                leading: Icon(Icons.new_releases),
-                title: Text('ข่าวสาร'),
+                leading: SvgPicture.asset(
+                  'assets/icons/ownerr.svg',
+                  width: 24.0,
+                  height: 24.0,
+                ),
+                title: Text(
+                  'User',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 trailing: Icon(Icons.arrow_right),
-                // selected:
-                //     ModalRoute.of(context).settings.name == 'newsstack/news'
-                //         ? true
-                //         : false,
                 onTap: () {
-                  // Navigator.of(context, rootNavigator: true)
-                  //     .pushNamedAndRemoveUntil(
-                  //         '/newsstack', (Route<dynamic> route) => false);
                   MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                      builder: (BuildContext context) => NewsPage());
+                      builder: (BuildContext context) => UserPage());
+                  Navigator.of(context).push(materialPageRoute);
+                },
+              ),
+              ListTile(
+                leading: SvgPicture.asset(
+                  'assets/icons/dog.svg',
+                  width: 24.0,
+                  height: 24.0,
+                ),
+                title: Text('Pet'),
+                trailing: Icon(Icons.arrow_right),
+                onTap: () {
+                  MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                      builder: (BuildContext context) => PetPage());
+                  Navigator.of(context).push(materialPageRoute);
+                },
+              ),
+              ListTile(
+                leading: SvgPicture.asset(
+                  'assets/icons/camera.svg',
+                  width: 24.0,
+                  height: 24.0,
+                ),
+                title: Text('Pet'),
+                trailing: Icon(Icons.arrow_right),
+                onTap: () {
+                  MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                      builder: (BuildContext context) => PetPage());
                   Navigator.of(context).push(materialPageRoute);
                 },
               ),
@@ -151,14 +171,7 @@ class _MenuState extends State<Menu> {
                 leading: Icon(Icons.directions_run),
                 title: Text('ออก'),
                 trailing: Icon(Icons.arrow_right),
-                // selected:
-                // ModalRoute.of(context).settings.name == 'homestack/home'
-                //     ? true
-                //     : false,
                 onTap: () {
-                  // Navigator.of(context, rootNavigator: true)
-                  //     .pushNamedAndRemoveUntil(
-                  //         '/', (Route<dynamic> route) => false);
                   MaterialPageRoute materialPageRoute = MaterialPageRoute(
                       builder: (BuildContext context) => FristPage());
                   Navigator.of(context).push(materialPageRoute);

@@ -80,8 +80,13 @@ class _AddListPetState extends State<AddListPet> {
           // ),
           // focusedBorder: OutlineInputBorder(),
           labelText: 'PetName',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type your Name of Pet',
-          icon: Icon(Icons.face, size: 36),
+          icon: SvgPicture.asset(
+            'assets/icons/dog.svg',
+            width: 36.0,
+            height: 36.0,
+          ),
         ),
       ),
     );
@@ -93,8 +98,13 @@ class _AddListPetState extends State<AddListPet> {
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Breed',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type your Name of Pet',
-          icon: Icon(Icons.pets, color: Colors.red),
+          icon: Icon(
+            Icons.pets,
+            color: Colors.red,
+            size: 36.0,
+          ),
         ),
       ),
     );
@@ -106,8 +116,14 @@ class _AddListPetState extends State<AddListPet> {
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Gender',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type Male or Female',
-          icon: Icon(Icons.accessibility_new),
+          // icon: Icon(Icons.accessibility_new),
+          icon: SvgPicture.asset(
+            'assets/icons/genders.svg',
+            width: 36.0,
+            height: 36.0,
+          ),
         ),
       ),
     );
@@ -119,8 +135,13 @@ class _AddListPetState extends State<AddListPet> {
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Color',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type Male or Female',
-          icon: Icon(Icons.color_lens, color: Colors.orange),
+          icon: Icon(
+            Icons.color_lens,
+            color: Colors.orange,
+            size: 36.0,
+          ),
         ),
       ),
     );
@@ -132,8 +153,14 @@ class _AddListPetState extends State<AddListPet> {
       child: TextField(
         decoration: InputDecoration(
           labelText: 'D.O.B',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type Male or Female',
-          icon: Icon(Icons.cake, color: Colors.orange),
+          // icon: Icon(Icons.cake, color: Colors.orange),
+          icon: SvgPicture.asset(
+            'assets/icons/cake.svg',
+            width: 36.0,
+            height: 36.0,
+          ),
         ),
       ),
     );
@@ -145,8 +172,15 @@ class _AddListPetState extends State<AddListPet> {
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Age',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type Male or Female',
-          icon: Icon(Icons.assignment, color: Colors.orange),
+          // icon: Icon(Icons.assignment, color: Colors.orange),
+          icon: SvgPicture.asset(
+            'assets/icons/age.svg',
+            width: 36.0,
+            height: 36.0,
+            color: Colors.red,
+          ),
         ),
       ),
     );
@@ -158,8 +192,14 @@ class _AddListPetState extends State<AddListPet> {
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Weight',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type Male or Female',
-          icon: Icon(Icons.line_weight, color: Colors.orange),
+          // icon: Icon(Icons.line_weight, color: Colors.orange),
+          icon: SvgPicture.asset(
+            'assets/icons/weight.svg',
+            width: 36.0,
+            height: 36.0,
+          ),
         ),
       ),
     );
@@ -171,8 +211,14 @@ class _AddListPetState extends State<AddListPet> {
       child: TextField(
         decoration: InputDecoration(
           labelText: 'Owner',
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
           // helperText: 'Type Male or Female',
-          icon: Icon(Icons.account_circle, color: Colors.orange),
+          // icon: Icon(Icons.account_circle, color: Colors.orange),
+          icon: SvgPicture.asset(
+            'assets/icons/ownerr.svg',
+            width: 36.0,
+            height: 36.0,
+          ),
         ),
       ),
     );

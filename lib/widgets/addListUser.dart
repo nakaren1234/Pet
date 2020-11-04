@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutterapp/pages/HomePage.dart';
 // import 'package:flutterapp/pages/UserPage.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -86,10 +87,10 @@ class _AddListUserState extends State<AddListUser> {
 
     await firestore.collection('Userprofile').doc().set(map).then((value) {
       print('insert success');
-      // MaterialPageRoute route = MaterialPageRoute(
-      //   builder: (value) => UserPage(),
-      // );
-      // Navigator.of(context).pushAndRemoveUntil(route, (value) => false);
+      MaterialPageRoute route = MaterialPageRoute(
+        builder: (value) => HomePage(),
+      );
+      Navigator.of(context).pushAndRemoveUntil(route, (value) => false);
     });
   }
 

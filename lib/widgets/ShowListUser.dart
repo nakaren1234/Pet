@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/models/userprofile_model.dart';
+import 'package:flutterapp/pages/PetPage.dart';
 
 class ShowListUser extends StatefulWidget {
   ShowListUser({Key key}) : super(key: key);
@@ -80,6 +81,17 @@ class _ShowListUserState extends State<ShowListUser> {
     );
   }
 
+  Widget showNamena(int index) {
+    return Text(
+      userprofileModels[index].name,
+      style: TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.black,
+      ),
+    );
+  }
+
   Widget showDetail(int index) {
     String string = userprofileModels[index].detail;
     if (string.length > 100) {
@@ -98,15 +110,16 @@ class _ShowListUserState extends State<ShowListUser> {
 
   Widget showText(int index) {
     return Container(
-      padding: EdgeInsets.only(right: 20.0, top: 30.0),
-      width: MediaQuery.of(context).size.width * 0.5,
-      height: MediaQuery.of(context).size.width * 0.6,
+      padding: EdgeInsets.only(right: 20.0, top: 50.0),
+      width: MediaQuery.of(context).size.width * 0.4,
+      height: MediaQuery.of(context).size.height * 0.4,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           showName(index),
-          showName(index),
+          SizedBox(height: 10.0),
           showDetail(index),
+          // showName(index),
         ],
       ),
     );
@@ -126,9 +139,32 @@ class _ShowListUserState extends State<ShowListUser> {
     return Container(
       child: ListView.builder(
         itemCount: userprofileModels.length,
-        itemBuilder: (BuildContext buildContext, int index) {
-          return showListView(index);
-        },
+        itemBuilder: (BuildContext buildContext, int index) =>
+            buildcard(buildContext, index),
+      ),
+    );
+  }
+
+  Widget buildcard(BuildContext buildContext, int index) {
+    // final user = userprofileModels[index];
+    return new Container(
+      child: Card(
+        child: InkWell(
+          onTap: () {
+            MaterialPageRoute materialPageRoute =
+                MaterialPageRoute(builder: (BuildContext context) => PetPage());
+            Navigator.of(context).push(materialPageRoute);
+          },
+          child: Column(
+            children: [
+              // Text(user.name),
+              // showNamena(index),
+              // showImage(index),
+              // showDetail(index),
+              showListView(index),
+            ],
+          ),
+        ),
       ),
     );
   }

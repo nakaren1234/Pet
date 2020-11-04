@@ -31,9 +31,10 @@ class _ShowListPetState extends State<ShowListPet> {
       for (var snapshot in snapshots) {
         print('snapshot = $snapshot');
         print('Name = ${snapshot.data['Name']}');
-
+        //การดึงค่าจากmodelมาformapsnapshot
         PetprofileModel petprofileModel =
             PetprofileModel.formMap(snapshot.data);
+        //การดึงค่าออกมาโชว์
         setState(() {
           petprofileModels.add(petprofileModel);
         });
@@ -46,9 +47,22 @@ class _ShowListPetState extends State<ShowListPet> {
     return Container(
       child: ListView.builder(
         itemCount: petprofileModels.length,
-        itemBuilder: (BuildContext buildContext, int index) {
-          return Text(petprofileModels[index].name);
-        },
+        itemBuilder: (BuildContext buildContext, int index) =>
+            buildcard(buildContext, index),
+      ),
+    );
+  }
+
+  Widget buildcard(BuildContext buildContext, int index) {
+    final pet = petprofileModels[index];
+    return new Container(
+      child: Card(
+        child: Column(
+          children: [
+            Text(pet.name),
+            Text(pet.color),
+          ],
+        ),
       ),
     );
   }
