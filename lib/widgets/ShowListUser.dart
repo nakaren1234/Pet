@@ -3,7 +3,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/models/userprofile_model.dart';
-import 'package:flutterapp/pages/PetPage.dart';
+
+import 'package:flutterapp/widgets/detail.dart';
 
 class ShowListUser extends StatefulWidget {
   ShowListUser({Key key}) : super(key: key);
@@ -36,8 +37,6 @@ class _ShowListUserState extends State<ShowListUser> {
       for (var snapshot in snapshots) {
         print('snapshot = $snapshot');
         print('Name = ${snapshot.data['Name']}');
-        // print(" = ${snapshot.data['Detail']}");
-        // print('Name = ${snapshot.data['Name']}');
 
         UserprofileModel userprofileModel =
             UserprofileModel.fromMap(snapshot.data);
@@ -151,8 +150,9 @@ class _ShowListUserState extends State<ShowListUser> {
       child: Card(
         child: InkWell(
           onTap: () {
-            MaterialPageRoute materialPageRoute =
-                MaterialPageRoute(builder: (BuildContext context) => PetPage());
+            MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                builder: (BuildContext context) =>
+                    Detail(userprofileModels[index].name));
             Navigator.of(context).push(materialPageRoute);
           },
           child: Column(

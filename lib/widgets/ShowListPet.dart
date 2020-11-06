@@ -56,12 +56,15 @@ class _ShowListPetState extends State<ShowListPet> {
   Widget buildcard(BuildContext buildContext, int index) {
     final pet = petprofileModels[index];
     return new Container(
-      child: Card(
-        child: Column(
-          children: [
-            Text(pet.name),
-            Text(pet.color),
-          ],
+      child: InkWell(
+        onTap: () {},
+        child: Card(
+          child: Column(
+            children: [
+              Text(pet.name),
+              Text(pet.color),
+            ],
+          ),
         ),
       ),
     );

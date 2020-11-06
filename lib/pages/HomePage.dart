@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutterapp/database/diary_home.dart';
 import 'package:flutterapp/pages/CompanyPage.dart';
 import 'package:flutterapp/pages/ContactPage.dart';
 import 'package:flutterapp/pages/FristPage.dart';
@@ -306,7 +307,8 @@ class _HomePageState extends State<HomePage> {
               onTap: () {
                 // Navigator.pushNamed(context, 'homestack/company');
                 MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                    builder: (BuildContext context) => CompanyPage());
+                    // builder: (BuildContext context) => CompanyPage());
+                    builder: (BuildContext context) => HomeDiary());
                 Navigator.of(context).push(materialPageRoute);
               },
               child: Container(

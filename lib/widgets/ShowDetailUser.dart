@@ -33,8 +33,6 @@ class _ShowDetailUserState extends State<ShowDetailUser> {
       for (var snapshot in snapshots) {
         print('snapshot = $snapshot');
         print('Name = ${snapshot.data['Name']}');
-        // print(" = ${snapshot.data['Detail']}");
-        // print('Name = ${snapshot.data['Name']}');
 
         UserprofileModel userprofileModel =
             UserprofileModel.fromMap(snapshot.data);
@@ -46,7 +44,8 @@ class _ShowDetailUserState extends State<ShowDetailUser> {
   }
 
   Widget showName(int index) {
-    return Text(userprofileModels[index].name);
+    final user = userprofileModels[index];
+    return Text(user.name);
   }
 
   @override
@@ -55,7 +54,9 @@ class _ShowDetailUserState extends State<ShowDetailUser> {
       child: ListView.builder(
         itemCount: userprofileModels.length,
         itemBuilder: (BuildContext buildContext, int index) {
-          return showName(index);
+          return ListTile(
+            title: Text(userprofileModels[index].name),
+          );
         },
       ),
     );
