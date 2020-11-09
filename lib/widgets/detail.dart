@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/models/userprofile_model.dart';
 
 // ignore: must_be_immutable
 class Detail extends StatefulWidget {
-  String userprofileModels;
-  Detail(String name, {this.userprofileModels});
+  UserprofileModel userprofileModels;
+  Detail({this.userprofileModels});
   // Detail(String name, {Key key, @required this.userprofileModels}) : super(key: key);
 
   @override
@@ -14,7 +15,7 @@ class _DetailState extends State<Detail> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(widget.userprofileModels),
+      child: Text(widget.userprofileModels.name),
     );
   }
 }

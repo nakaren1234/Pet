@@ -152,7 +152,7 @@ class _ShowListUserState extends State<ShowListUser> {
           onTap: () {
             MaterialPageRoute materialPageRoute = MaterialPageRoute(
                 builder: (BuildContext context) =>
-                    Detail(userprofileModels[index].name));
+                    Detail(userprofileModels: userprofileModels[index]));
             Navigator.of(context).push(materialPageRoute);
           },
           child: Column(
