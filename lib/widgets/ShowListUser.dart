@@ -80,17 +80,6 @@ class _ShowListUserState extends State<ShowListUser> {
     );
   }
 
-  Widget showNamena(int index) {
-    return Text(
-      userprofileModels[index].name,
-      style: TextStyle(
-        fontSize: 24.0,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-      ),
-    );
-  }
-
   Widget showDetail(int index) {
     String string = userprofileModels[index].detail;
     if (string.length > 100) {
@@ -158,7 +147,6 @@ class _ShowListUserState extends State<ShowListUser> {
           child: Column(
             children: [
               // Text(user.name),
-              // showNamena(index),
               // showImage(index),
               // showDetail(index),
               showListView(index),
