@@ -92,8 +92,60 @@ class _DetailState extends State<Detail> {
       appBar: AppBar(
         backgroundColor: Colors.pinkAccent,
         title: Text(widget.userprofileModels.name),
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.black,
+              size: 30.0,
+            ),
+            padding: EdgeInsets.only(right: 15.0),
+            onPressed: () {
+              BottomSheet(context);
+            },
+          )
+        ],
       ),
       body: showListView(),
+    );
+  }
+
+  // ignore: non_constant_identifier_names
+  void BottomSheet(context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return Container(
+          height: MediaQuery.of(context).size.height * 0.6,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text('data'),
+                    Spacer(),
+                    IconButton(
+                        icon: Icon(
+                          Icons.cancel,
+                          color: Colors.orange,
+                          size: 25.0,
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        })
+                  ],
+                ),
+                Row(
+                  children: [
+                    showName(),
+                  ],
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
