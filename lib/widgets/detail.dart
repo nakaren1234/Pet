@@ -49,12 +49,14 @@ class _DetailState extends State<Detail> {
     return Row(
       // mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          widget.userprofileModels.detail,
-          style: TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+        Expanded(
+          child: Text(
+            widget.userprofileModels.detail,
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
         ),
       ],
@@ -78,11 +80,13 @@ class _DetailState extends State<Detail> {
   }
 
   Widget showListView() {
-    return Column(
-      children: [
-        showImage(),
-        showText(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          showImage(),
+          showText(),
+        ],
+      ),
     );
   }
 
