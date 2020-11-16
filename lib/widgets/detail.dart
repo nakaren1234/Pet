@@ -90,6 +90,33 @@ class _DetailState extends State<Detail> {
     );
   }
 
+  Widget nameForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: TextField(
+        // onChanged: (String string) {
+        //   name = string.trim();
+        // },
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.face,
+            color: Colors.green,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: OutlineInputBorder(),
+          labelText: widget.userprofileModels.name,
+          // helperText: 'Type your Name of User',
+          // icon: Icon(Icons.face),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +154,10 @@ class _DetailState extends State<Detail> {
               children: [
                 Row(
                   children: [
-                    Text('data'),
+                    Text(
+                      'Update Data',
+                      style: TextStyle(fontSize: 30.0),
+                    ),
                     Spacer(),
                     IconButton(
                         icon: Icon(
@@ -140,9 +170,18 @@ class _DetailState extends State<Detail> {
                         })
                   ],
                 ),
+                SizedBox(
+                  height: 20.0,
+                ),
                 Row(
                   children: [
-                    showName(),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 30.0,
+                      ),
+                    ),
+                    // showName(),
+                    nameForm(),
                   ],
                 )
               ],
