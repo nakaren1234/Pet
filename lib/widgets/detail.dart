@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/models/userprofile_model.dart';
 
@@ -12,6 +13,11 @@ class Detail extends StatefulWidget {
 }
 
 class _DetailState extends State<Detail> {
+  //Field
+
+  String name, detail;
+
+  //Method
   Widget showImage() {
     return Container(
       padding: EdgeInsets.all(20.0),
@@ -117,6 +123,62 @@ class _DetailState extends State<Detail> {
     );
   }
 
+  Widget detailForm() {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.8,
+      // height: MediaQuery.of(context).size.height * 0.2,
+      child: TextField(
+        // onChanged: (value) {
+        //   detail = value.trim();
+        // },
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            Icons.assignment_turned_in,
+            color: Colors.green,
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10.0),
+            ),
+            borderSide: BorderSide(color: Colors.grey),
+          ),
+          focusedBorder: OutlineInputBorder(),
+          labelText: widget.userprofileModels.detail,
+          // helperText: 'Type your Detail of User',
+          // icon: Icon(Icons.assignment_turned_in),
+        ),
+      ),
+    );
+  }
+
+  Future<void> updateFireStore() async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    Map<String, dynamic> map = Map();
+    map['Name'] = name;
+    map['Detail'] = detail;
+
+    await firestore.collection('Userprofile').doc().set(map).then(
+      (value) {
+        print('insert success');
+      },
+    );
+  }
+
+  Future<void> deleteFireStore() async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+    Map<String, dynamic> map = Map();
+    map['Name'] = name;
+    map['Detail'] = detail;
+
+    await firestore.collection('Userprofile').doc().delete().then(
+      (value) {
+        print('delete success');
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -156,7 +218,8 @@ class _DetailState extends State<Detail> {
                   children: [
                     Text(
                       'Update Data',
-                      style: TextStyle(fontSize: 30.0),
+                      style: TextStyle(
+                          fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                     Spacer(),
                     IconButton(
@@ -170,9 +233,7 @@ class _DetailState extends State<Detail> {
                         })
                   ],
                 ),
-                SizedBox(
-                  height: 20.0,
-                ),
+                SizedBox(height: 20.0),
                 Row(
                   children: [
                     Padding(
@@ -183,7 +244,43 @@ class _DetailState extends State<Detail> {
                     // showName(),
                     nameForm(),
                   ],
-                )
+                ),
+                SizedBox(height: 20.0),
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 30.0,
+                      ),
+                    ),
+                    detailForm(),
+                  ],
+                ),
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    RaisedButton(
+                      child: Text('Submit'),
+                      color: Colors.green,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        updateFireStore();
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    SizedBox(width: 20.0),
+                    RaisedButton(
+                      child: Text('delete'),
+                      color: Colors.red,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        deleteFireStore();
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
