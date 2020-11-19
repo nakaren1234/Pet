@@ -15,6 +15,7 @@ class _AddListPetState extends State<AddListPet> {
   //Field
   File file;
   final picker = ImagePicker();
+  String name, breed, gender, color, dob, age, weight, owner;
   //Method
 
   Widget uploadButton() {
@@ -67,6 +68,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (value) {
+          name = value.trim();
+        },
         decoration: InputDecoration(
           // prefixIcon: Icon(
           //   Icons.face,
@@ -96,6 +100,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (value) {
+          breed = value.trim();
+        },
         decoration: InputDecoration(
           labelText: 'Breed',
           labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -114,6 +121,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.35,
       child: TextField(
+        onChanged: (value) {
+          gender = value.trim();
+        },
         decoration: InputDecoration(
           labelText: 'Gender',
           labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -133,6 +143,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.35,
       child: TextField(
+        onChanged: (value) {
+          color = value.trim();
+        },
         decoration: InputDecoration(
           labelText: 'Color',
           labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -151,6 +164,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (value) {
+          dob = value.trim();
+        },
         decoration: InputDecoration(
           labelText: 'D.O.B',
           labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -170,6 +186,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (value) {
+          age = value.trim();
+        },
         decoration: InputDecoration(
           labelText: 'Age',
           labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -190,6 +209,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (value) {
+          weight = value.trim();
+        },
         decoration: InputDecoration(
           labelText: 'Weight',
           labelStyle: TextStyle(fontWeight: FontWeight.bold),
@@ -209,6 +231,9 @@ class _AddListPetState extends State<AddListPet> {
     return Container(
       width: MediaQuery.of(context).size.width * 0.6,
       child: TextField(
+        onChanged: (value) {
+          owner = value.trim();
+        },
         decoration: InputDecoration(
           labelText: 'Owner',
           labelStyle: TextStyle(fontWeight: FontWeight.bold),
