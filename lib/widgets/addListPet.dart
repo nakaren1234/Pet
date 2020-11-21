@@ -32,6 +32,24 @@ class _AddListPetState extends State<AddListPet> {
 
               if (file == null) {
                 showAlert('Non Choose Image', 'Please Click Camara or Gallery');
+              } else if (name == null || name.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else if (breed == null || breed.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else if (gender == null || gender.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else if (color == null || color.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Color');
+              } else if (dob == null || dob.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else if (age == null || age.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else if (weight == null || weight.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else if (owner == null || owner.isEmpty) {
+                showAlert('Have Space', 'Please Fill Every Blank');
+              } else {
+                //upload value to firebase
               }
             },
             icon: Icon(
