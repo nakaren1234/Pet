@@ -29,6 +29,10 @@ class _AddListPetState extends State<AddListPet> {
             color: Colors.pinkAccent,
             onPressed: () {
               print('You Click');
+
+              if (file == null) {
+                showAlert('Non Choose Image', 'Please Click Camara or Gallery');
+              }
             },
             icon: Icon(
               Icons.save_alt,
