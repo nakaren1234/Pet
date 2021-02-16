@@ -69,7 +69,7 @@ class _CompanyPageState extends State<CompanyPage> {
                       ),
                     ),
                     Divider(color: Colors.black),
-                    buildFooter()
+                    buildFooter(),
                   ],
                 ),
               ),
